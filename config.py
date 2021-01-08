@@ -1,5 +1,3 @@
-TOKEN = 'NzA0MDYzNTg1MjQ4MjE1MDkx.XqXsZg.rlUWLUVsfJjPtplX4jji2us_Xdg'
-
 POST_ID = 704073239948689480
 
 ROLES = {
@@ -13,4 +11,9 @@ EXCROLES = ()
 
 MAX_ROLES_PER_USER = 2
 
-
+settings = {
+    'token':'Nzk2ODkyMDU5MzgxMjY4NDkw.X_ehkA.9j1k5iqcHwVv4oU0b5tSaB5BFGU',
+    'bot': 'DURKA manager',
+    'id': 796892059381268490,
+    'prefix': 'Префикс бота'
+}
