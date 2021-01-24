@@ -90,8 +90,8 @@ class RoleReactClient(discord.Client):
 
     async def on_message(self, message):
         if message.author.id != self.user.id:
-            if (message.clean_content.count("бля") or message.clean_content.count("еба") or message.clean_content.count(
-                    "пизд") or message.clean_content.count("муда") or message.clean_content.count("оху")) >= 1:
+            msg = str(message.clean_content).lower()
+            if (msg.count("бля") or msg.count("еба") or msg.count("пизд") or msg.count("муда") or msg.count("ху")) >= 1 or msg.count("пид") >= 1:
                 await CensFilter.isCens(message, client)
             else:
                 if message.content.startswith('!Hello'):
