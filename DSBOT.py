@@ -1,5 +1,7 @@
 """Uses a messages to add and remove roles through reactions."""
-
+import asyncio
+import config
+import CensFilter
 import discord
 
 emojies = {1: discord.PartialEmoji(animated=False, name='😮', id=None),
@@ -85,6 +87,21 @@ class RoleReactClient(discord.Client):
         except discord.HTTPException:
             # If we want to do something in case of errors we'd do it here.
             pass
+
+    async def on_message(self, message):
+        if message.author.id != self.user.id:
+            if (message.clean_content.count("бля") or message.clean_content.count("еба") or message.clean_content.count(
+                    "пизд") or message.clean_content.count("муда") or message.clean_content.count("оху")) >= 1:
+                await CensFilter.isCens(message, client)
+            else:
+                if message.content.startswith('!Hello'):
+                    channel = client.get_channel(message.channel.id)
+                    response = message.author.id
+                    await channel.send(f"Привет <@{response}> <:MIREA:794283107478011974> !")
+
+    async def on_message_edit(self, before, after):
+        fmt = '**{0.author}** изменил сообщение:\n{0.content} -> {1.content}'
+        await before.channel.send(fmt.format(before, after))
 
 
 # This bot requires the members and reactions intents.
