@@ -4,6 +4,7 @@ import config
 import CensFilter
 import discord
 
+
 emojies = {1: discord.PartialEmoji(animated=False, name='😮', id=None),
            2: discord.PartialEmoji(animated=False, name='🥼', id=None),
            3: discord.PartialEmoji(animated=False, name='👘', id=None),
