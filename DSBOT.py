@@ -4,7 +4,6 @@ import config
 import CensFilter
 import discord
 
-
 emojies = {1: discord.PartialEmoji(animated=False, name='😮', id=None),
            2: discord.PartialEmoji(animated=False, name='🥼', id=None),
            3: discord.PartialEmoji(animated=False, name='👘', id=None),
@@ -105,7 +104,8 @@ class RoleReactClient(discord.Client):
 
     async def on_message_edit(self, before, after):
         msg = str(after.clean_content).lower()
-        if msg in badwords or msg.count("ху") >= 1 or msg.count("еб") >= 1 or msg.count("бля") >= 1:
+        if msg in badwords or msg.count("ху") >= 1 or msg.count("еб") >= 1 or msg.count("бля") >= 1 or msg.count(
+                "пидр") >= 1 or msg.count("пидо") >= 1:
             await CensFilter.doCens(after, client)
             await before.delete()
         else:
