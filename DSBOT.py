@@ -104,9 +104,7 @@ class RoleReactClient(discord.Client):
 
     async def on_message_edit(self, before, after):
         msg = str(after.clean_content).lower()
-        if msg in badwords or msg.count("оху") >= 1 or msg.count("аху") or msg.count(
-                "еба") >= 1 or msg.count(
-            "ебл") >= 1 or msg.count("хуй") >= 1:
+        if msg in badwords or msg.count("ху") >= 1 or msg.count("еб") >= 1 or msg.count("бля") >= 1:
             await CensFilter.doCens(after, client)
         else:
             fmt = u'**{0.author}** изменил сообщение:\n{0.content} -> {1.content}'
