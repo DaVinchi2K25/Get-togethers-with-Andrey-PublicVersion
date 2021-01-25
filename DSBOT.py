@@ -8,7 +8,7 @@ emojies = {1: discord.PartialEmoji(animated=False, name='😮', id=None),
            2: discord.PartialEmoji(animated=False, name='🥼', id=None),
            3: discord.PartialEmoji(animated=False, name='👘', id=None),
            }
-badwords = open('censlist.txt').readline().split(', ')
+badwords = open(u'censlist.txt').readline().split(', ')
 
 class RoleReactClient(discord.Client):
     def __init__(self, *args, **kwargs):
@@ -30,9 +30,9 @@ class RoleReactClient(discord.Client):
 
         try:
             role_id = self.emoji_to_role[payload.emoji]
-            print("ЭМОДЖИ ПАШУТ " + str(role_id))
+            print(u"ЭМОДЖИ ПАШУТ " + str(role_id))
         except KeyError:
-            print("ЖЕПА")
+            print(u"ЖЕПА")
             # If the emoji isn't the one we care about then exit as well.
             return
 
@@ -100,7 +100,7 @@ class RoleReactClient(discord.Client):
                     await channel.send(f"Привет <@{response}> <:MIREA:794283107478011974> !")
 
     async def on_message_edit(self, before, after):
-        fmt = '**{0.author}** изменил сообщение:\n{0.content} -> {1.content}'
+        fmt = u'**{0.author}** изменил сообщение:\n{0.content} -> {1.content}'
         await before.channel.send(fmt.format(before, after))
 
 
