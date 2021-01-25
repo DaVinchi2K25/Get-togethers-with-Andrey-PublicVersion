@@ -6,8 +6,6 @@ async def checkCens(message, client):
     if msg in DSBOT.badwords or msg.count("оху") >= 1 or msg.count("аху") or msg.count("еба") >= 1 or msg.count(
             "ебл") >= 1 or msg.count("хуй") >= 1:
         await doCens(message, client)
-    else:
-        return True
 
 
 async def doCens(message, client):
