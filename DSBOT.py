@@ -91,14 +91,16 @@ class RoleReactClient(discord.Client):
 
     async def on_message(self, message):
         if message.author.id != self.user.id:
-            if CensFilter.checkCens(message, client):
+            if CensFilter.cens:
+                CensFilter.cens = False
                 if message.content.startswith('!Hello'):
                     channel = client.get_channel(message.channel.id)
                     response = message.author.id
                     await channel.send(f"Привет <@{response}> <:MIREA:794283107478011974> !")
 
     async def on_message_edit(self, before, after):
-        if CensFilter.checkCens(after, client):
+        if CensFilter.cens:
+            CensFilter.cens = False
             fmt = u'**{0.author}** изменил сообщение:\n{0.content} -> {1.content}'
             await before.channel.send(fmt.format(before, after))
 
