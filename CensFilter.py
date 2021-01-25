@@ -1,6 +1,3 @@
-import DSBOT
-
-
 
 async def doCens(message, client):
     await message.delete()
