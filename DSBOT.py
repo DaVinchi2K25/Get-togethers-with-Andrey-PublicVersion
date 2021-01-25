@@ -98,8 +98,9 @@ class RoleReactClient(discord.Client):
                     await channel.send(f"Привет <@{response}> <:MIREA:794283107478011974> !")
 
     async def on_message_edit(self, before, after):
-        fmt = u'**{0.author}** изменил сообщение:\n{0.content} -> {1.content}'
-        await before.channel.send(fmt.format(before, after))
+        if CensFilter.checkCens(after, client) == 'clear':
+            fmt = u'**{0.author}** изменил сообщение:\n{0.content} -> {1.content}'
+            await before.channel.send(fmt.format(before, after))
 
 
 # This bot requires the members and reactions intents.
