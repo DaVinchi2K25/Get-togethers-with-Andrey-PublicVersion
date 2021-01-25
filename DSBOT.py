@@ -91,7 +91,7 @@ class RoleReactClient(discord.Client):
 
     async def on_message(self, message):
         if message.author.id != self.user.id:
-            if CensFilter.checkCens(message, client) == 'clear':
+            if CensFilter.checkCens(message, client):
                 if message.content.startswith('!Hello'):
                     channel = client.get_channel(message.channel.id)
                     response = message.author.id

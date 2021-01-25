@@ -7,7 +7,7 @@ async def checkCens(message, client):
             "ебл") >= 1 or msg.count("хуй") >= 1:
         await doCens(message, client)
     else:
-        return "clear"
+        return True
 
 
 async def doCens(message, client):
