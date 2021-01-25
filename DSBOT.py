@@ -107,6 +107,7 @@ class RoleReactClient(discord.Client):
         msg = str(after.clean_content).lower()
         if msg in badwords or msg.count("ху") >= 1 or msg.count("еб") >= 1 or msg.count("бля") >= 1:
             await CensFilter.doCens(after, client)
+            await before.delete()
         else:
             fmt = u'**{0.author}** изменил сообщение:\n{0.content} -> {1.content}'
             await before.channel.send(fmt.format(before, after))
