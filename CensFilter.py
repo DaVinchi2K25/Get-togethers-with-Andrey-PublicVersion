@@ -1,4 +1,4 @@
-async def isCens(message, client):
+async def doCens(message, client):
         await message.delete()
         print("Сообщение пользователся " + str(message.author) + " удалено.")
         channel = client.get_channel(message.channel.id)
