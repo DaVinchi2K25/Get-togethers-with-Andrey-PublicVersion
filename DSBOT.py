@@ -10,6 +10,7 @@ emojies = {1: discord.PartialEmoji(animated=False, name='😮', id=None),
            }
 badwords = open(u'censlist.txt').readline().split(', ')
 
+
 class RoleReactClient(discord.Client):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -91,7 +92,7 @@ class RoleReactClient(discord.Client):
     async def on_message(self, message):
         if message.author.id != self.user.id:
             msg = str(message.clean_content).lower()
-            if msg in badwords:
+            if msg in badwords or msg.count("оху") >= 1 or msg.count("аху") >= 1:
                 await CensFilter.doCens(message, client)
             else:
                 if message.content.startswith('!Hello'):
