@@ -92,12 +92,11 @@ class RoleReactClient(discord.Client):
     async def on_message(self, message):
         if message.author.id != self.user.id:
             msg = str(message.clean_content).lower()
-            msg = CensFilter.unique(msg)
             if msg.count('\n') >= 1:
                 msg = msg.replace("\n", "").replace("\r", "").replace("\t", "")
             msg = msg.split()
             msg = ''.join(msg)
-
+            msg = ''.join(CensFilter.unique(msg))
             if msg in badwords or msg.count("оху") >= 1 or msg.count("аху") or msg.count(
                     "еба") >= 1 or msg.count(
                 "ебл") >= 1 or msg.count("хуй") >= 1:
