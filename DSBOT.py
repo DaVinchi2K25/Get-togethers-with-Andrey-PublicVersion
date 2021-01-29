@@ -94,8 +94,8 @@ class RoleReactClient(discord.Client):
             msg = str(message.clean_content).lower()
             if msg.count('\n') >= 1:
                 msg = msg.replace("\n", "").replace("\r", "").replace("\t", "")
-            if msg.count(',') >= 1 or msg.count('.') >=1:
-                msg = msg.replace(',', '').replace('.', '')
+            if msg.count(',') >= 1 or msg.count('.') >= 1:
+                msg = msg.replace(',', '').replace('.', '').replace('/', '').replace('|', '').replace('\\', '')
             msg = msg.split()
             msg = ''.join(msg)
             msg = ''.join(CensFilter.unique(msg))
