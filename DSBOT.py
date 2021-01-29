@@ -104,7 +104,7 @@ class RoleReactClient(discord.Client):
                 "ебл") >= 1 or msg.count("хуй") >= 1:
                 await CensFilter.doCens(message, client)
             else:
-                if message.content.startswith('!Hello'):
+                if message.content.startswith('!Hello!'):
                     channel = client.get_channel(message.channel.id)
                     response = message.author.id
                     await channel.send(f"Привет <@{response}> <:MIREA:794283107478011974> !")
