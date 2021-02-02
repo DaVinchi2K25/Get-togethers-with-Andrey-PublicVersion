@@ -108,6 +108,8 @@ class RoleReactClient(discord.Client):
                     channel = client.get_channel(message.channel.id)
                     response = message.author.id
                     await channel.send(f"Привет <@{response}> <:MIREA:794283107478011974> !")
+                elif message.content.startswith('!voteBan'):
+                    print(message.content)
 
     async def on_message_edit(self, before, after):
         msg = str(after.clean_content).lower()
