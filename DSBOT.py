@@ -129,4 +129,4 @@ intents = discord.Intents.all()
 intents.members = True
 
 client = RoleReactClient(intents=intents)
-client.run("Nzk2ODkyMDU5MzgxMjY4NDkw.X_ehkA.9j1k5iqcHwVv4oU0b5tSaB5BFGU")
+client.run("")
