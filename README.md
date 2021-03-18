@@ -1,2 +1,2 @@
 "# Get-togethers-with-Andrey" 
-Сосите жопу хейтеры
+Бот для дискорда на python
